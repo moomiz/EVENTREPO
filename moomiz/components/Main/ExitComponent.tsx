@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import confetti from 'canvas-confetti';
 
 function ExitComponent() {
-    const sentence = '당신은 티로보를 탈출 하셨습니다 -!'
+    const sentence = '당 신 은  티 로 보 를  탈 출 하 셨 습 니 다 -!'
     const texts = Array.from(sentence)
 
     const duration = 5 * 1000;

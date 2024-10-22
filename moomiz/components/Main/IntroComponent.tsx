@@ -28,7 +28,7 @@ function IntroComponent({ question, answer, page, setPage }: quiz) {
     // 다른 page에 따른 선택지도 추가 가능
   };
 
-  const colors = ["#FF8A80", "#80D8FF", "#FFEA00", "#CCFF90"];
+  const colors = ["#FF8A80", "#80D8FF", "#d4c83c", "#84C539"];
 
   const answerHandler = (view: string) => {
     if (view == answer[page - 1]) {
@@ -120,15 +120,16 @@ const BtnComponent = styled.div`
   height: 30vh;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-top: 10vh;
 `;
 
 const Btn = styled.div<{ bgColor: string }>`
   display: flex;
   width: 20vw;
-  height: 5vh;
+  height: 7vh;
   background-color: ${(props) => props.bgColor};
   border-radius: 1vw;
   display: flex;
