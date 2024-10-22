@@ -30,11 +30,11 @@ function LogoComponent() {
 
   // 배경 색상을 계산하는 함수
   const getBackgroundColor = (page: number) => {
-    if (page == 10) {
-      return `rgb(153,204)`
+    if (page == 9) {
+      return `#ffffff`
     } else {
-    const colorValue = Math.min(255, 50 + page * 25); // 페이지에 따라 색상 값 조정
-    return `rgb(${colorValue}, ${colorValue}, ${colorValue})`; // 흰색으로 밝아짐
+      const colorValue = Math.min(255, 50 + page * 25); // 페이지에 따라 색상 값 조정
+      return `rgb(${colorValue}, ${colorValue}, ${colorValue})`; // 흰색으로 밝아짐
     }
   };
 
@@ -60,7 +60,7 @@ function LogoComponent() {
       )}
       {page == 8 && (
         <>
-          <ExitComponent  setPage={setPage} />
+          <ExitComponent setPage={setPage} />
         </>
       )}
       {page == 9 && (
