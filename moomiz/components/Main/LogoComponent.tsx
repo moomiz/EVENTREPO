@@ -7,7 +7,7 @@ import ExitComponent from "./ExitComponent";
 import PaperComponents from "./PaperComponents";
 
 function LogoComponent() {
-  const [page, setPage] = useState<number>(9);
+  const [page, setPage] = useState<number>(0);
   const question = [
     "세교 사무실 건물 이름은?",
     "개발 1팀의 막내는 누구일까요?",
@@ -30,12 +30,12 @@ function LogoComponent() {
 
   // 배경 색상을 계산하는 함수
   const getBackgroundColor = (page: number) => {
-    if (page == 9) {
-      return `rgb(153,204,255)`
-    } else {
-      const colorValue = Math.min(255, 50 + page * 25); // 페이지에 따라 색상 값 조정
-      return `rgb(${colorValue}, ${colorValue}, ${colorValue})`; // 흰색으로 밝아짐
-    }
+    // if (page == 10) {
+    //   return `rgb(153,204)`
+    // } else {
+    const colorValue = Math.min(255, 50 + page * 25); // 페이지에 따라 색상 값 조정
+    return `rgb(${colorValue}, ${colorValue}, ${colorValue})`; // 흰색으로 밝아짐
+    // }
   };
 
   return (
