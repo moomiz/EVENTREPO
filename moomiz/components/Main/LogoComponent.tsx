@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import { styled } from "styled-components";
 import Image from "next/image";
 import IntroComponent from "./IntroComponent";
+import ExitComponent from "./ExitComponent";
+import PaperComponents from "./PaperComponents";
 
 function LogoComponent() {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(9);
   const question = [
     "세교 사무실 건물 이름은?",
-    "개발1팀의 막내는 누구일까요?",
+    "개발 1팀의 막내는 누구일까요?",
     "심 본부장님의 겨울 취미는?",
     "대표님 첫째 아드님의 이름은?",
     "재현이가 가장 좋아하는 판교 배달 음식은? ",
@@ -26,17 +28,27 @@ function LogoComponent() {
     "6년차",
   ];
 
+  // 배경 색상을 계산하는 함수
+  const getBackgroundColor = (page: number) => {
+    if (page == 9) {
+      return `rgb(153,204,255)`
+    } else {
+      const colorValue = Math.min(255, 50 + page * 25); // 페이지에 따라 색상 값 조정
+      return `rgb(${colorValue}, ${colorValue}, ${colorValue})`; // 흰색으로 밝아짐
+    }
+  };
+
   return (
-    <Wrapper>
+    <Wrapper backgroundColor={getBackgroundColor(page)}>
       {page == 0 && (
         <>
           <TitleContainer>
-            <Title className="Endeavoring">티로보 대탈출</Title>
+            <Title className="Endeavoring">티로보 대탈출-!</Title>
           </TitleContainer>
           <Btn onClick={() => setPage(1)}>start</Btn>
         </>
       )}
-      {page >0 && page < 8 && (
+      {page > 0 && page < 8 && (
         <>
           <IntroComponent
             question={question}
@@ -48,26 +60,28 @@ function LogoComponent() {
       )}
       {page == 8 && (
         <>
-          <div>탈출</div>
+          <ExitComponent />
+        </>
+      )}
+      {page == 9 && (
+        <>
+          <PaperComponents />
         </>
       )}
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ backgroundColor: string }>`
   scroll-snap-align: start;
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: black;
-
+  background-color: ${({ backgroundColor }) => backgroundColor}; // 동적으로 배경색 설정
 
   img {
-    /* animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
-      animation-iteration-count: 4; */
     position: absolute;
     top: 0;
     left: 0;
