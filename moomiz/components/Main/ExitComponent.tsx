@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import confetti from 'canvas-confetti';
 
-function ExitComponent() {
+interface pages {
+    setPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+function ExitComponent({ setPage }: pages) {
     const sentence = '당 신 은  티 로 보 를  탈 출 하 셨 습 니 다 -!'
     const texts = Array.from(sentence)
 
@@ -35,6 +39,7 @@ function ExitComponent() {
                 ))
                 }
             </TextLine>
+            <Btn onClick={() => setPage(9)}>탈출하기</Btn>
         </Wrapper>
     )
 }
@@ -42,7 +47,7 @@ function ExitComponent() {
 export default ExitComponent
 
 const Wrapper = styled.div`
-  font-family: Pretendard-Regular;
+  font-family: Cafe24ClassicType-Regular;
   font-weight: 600;
   font-size: 32px;
   padding-left: 10%;
@@ -52,6 +57,21 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+`;
+
+const Btn = styled.div`
+  display: flex;
+  width: 20vw;
+  height: 10vh;
+  background-color: transparent;
+  border-radius: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: 5vh;
+  font-family: Cafe24ClassicType-Regular;
+  font-size: 4vh;
 `;
 
 const TextLine = styled.div`
@@ -69,7 +89,7 @@ const TextLine = styled.div`
 `;
 
 const Text = styled.span<{ delay: string }>`
-  font-family: Pretendard-Regular;
+  font-family:Cafe24ClassicType-Regular;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
   animation-delay: ${(props) => props.delay};

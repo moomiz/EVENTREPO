@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
+import Swal from "sweetalert2";
 
 interface quiz {
   question: string[];
@@ -10,6 +11,7 @@ interface quiz {
 
 function IntroComponent({ question, answer, page, setPage }: quiz) {
   const [texts, setTexts] = useState(Array.from(question[page - 1]));
+  const Swal = require('sweetalert2')
 
   useEffect(() => {
     // page가 변경될 때마다 새로운 문제 텍스트를 설정
@@ -34,7 +36,11 @@ function IntroComponent({ question, answer, page, setPage }: quiz) {
     if (view == answer[page - 1]) {
       setPage(page + 1);
     } else {
-
+      Swal.fire({
+        icon: "error",
+        title: "땡!",
+        text: "다시 생각해보세요!"
+      });
     }
   };
 
@@ -116,7 +122,7 @@ const Text = styled.span<{ delay: string, textColor: string }>`
 
 const BtnComponent = styled.div`
   display: flex;
-  width: 100%;
+  width: 80%;
   height: 30vh;
   display: flex;
   flex-wrap: wrap;
@@ -138,6 +144,8 @@ const Btn = styled.div<{ bgColor: string }>`
   color: white;
   margin: 5vh;
   font-size: 18px;
+  /* box-shadow: ;
+  cursor: pointer; */
 `;
 
 export default IntroComponent;

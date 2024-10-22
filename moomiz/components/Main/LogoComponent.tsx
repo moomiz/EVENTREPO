@@ -60,7 +60,7 @@ function LogoComponent() {
       )}
       {page == 8 && (
         <>
-          <ExitComponent />
+          <ExitComponent  setPage={setPage} />
         </>
       )}
       {page == 9 && (
