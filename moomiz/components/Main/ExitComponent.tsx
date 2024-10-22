@@ -15,7 +15,7 @@ function ExitComponent() {
     }
 
 
-    var interval = setInterval(function () {
+    var interval: NodeJS.Timeout = setInterval(function () {
         var timeLeft = animationEnd - Date.now();
 
         if (timeLeft <= 0) {
