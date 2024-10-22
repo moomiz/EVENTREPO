@@ -27,6 +27,9 @@
     "@types/three": "^0.152.1",
     "babel-plugin-styled-components": "^2.1.4"
   },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "main": "index.js",
   "license": "MIT"
 }
